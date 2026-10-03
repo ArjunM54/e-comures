@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Dashboard - ShopCraft</title>
+    <!-- FontAwesome CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/dashboard.css">
+</head>
+<body>
+
+    <!-- Header & Navigation -->
+    <header class="navbar">
+        <div class="container nav-container">
+            <a href="../index.html" class="logo">
+                <i class="fas fa-shopping-bag"></i>
+                <span>ShopCraft</span>
+            </a>
+
+            <button class="menu-toggle-btn" id="menu-toggle" aria-label="Toggle navigation">
+                <i class="fas fa-bars"></i>
+            </button>
+
+            <ul class="nav-links" id="nav-links">
+                <li><a href="../index.html" class="nav-link"><i class="fas fa-home"></i> Storefront</a></li>
+                <li><a href="my-orders.html" class="nav-link"><i class="fas fa-box"></i> My Orders</a></li>
+                <li><a href="profile.html" class="nav-link"><i class="fas fa-user-circle"></i> Profile</a></li>
+            </ul>
+
+            <div class="user-nav-actions" id="user-nav-actions">
+                <!-- Dynamically updated by main.js -->
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container" style="padding-top: 2rem;">
+        <div class="page-title-section">
+            <h1>User Dashboard</h1>
+            <p>Welcome to your personal shopping hub. Browse products, manage cart and track orders.</p>
+        </div>
+
+        <!-- Catalog Filter Controls -->
+        <div class="catalog-controls">
+            <div class="search-box">
+                <i class="fas fa-search"></i>
+                <input type="text" id="search-input" class="search-input" placeholder="Search catalog...">
+            </div>
+            
+            <div class="filter-group">
+                <select id="category-select" class="select-control">
+                    <option value="All">All Categories</option>
+                    <option value="Electronics">Electronics</option>
+                    <option value="Fashion">Fashion</option>
+                    <option value="Shoes">Shoes</option>
+                    <option value="Accessories">Accessories</option>
+                    <option value="Home">Home</option>
+                    <option value="Beauty">Beauty</option>
+                </select>
+
+                <select id="sort-select" class="select-control">
+                    <option value="default">Sort by: Default</option>
+                    <option value="price-low">Price: Low to High</option>
+                    <option value="price-high">Price: High to Low</option>
+                    <option value="rating">Rating: High to Low</option>
+                </select>
+
+                <button id="clear-filters-btn" class="btn btn-secondary btn-sm">Reset</button>
+            </div>
+        </div>
+
+        <!-- Category Pills -->
+        <div class="category-pills" id="category-pills"></div>
+
+        <!-- Products Grid -->
+        <div class="products-grid" id="products-grid"></div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container footer-bottom">
+            <p>&copy; 2026 ShopCraft E-Commerce Project. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="../js/storage.js"></script>
+    <script src="../js/main.js"></script>
+    <script src="../js/products.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            initCatalog();
+        });
+    </script>
+</body>
+</html>

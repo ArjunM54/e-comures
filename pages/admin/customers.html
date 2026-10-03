@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registered Customers - Admin Panel</title>
+    <!-- FontAwesome CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="../../css/style.css">
+    <link rel="stylesheet" href="../../css/checkout.css">
+    <link rel="stylesheet" href="../../css/admin.css">
+</head>
+<body>
+
+    <div class="admin-layout">
+        <!-- Admin Sidebar Navigation -->
+        <aside class="admin-sidebar">
+            <div class="admin-brand">
+                <i class="fas fa-shield-alt"></i>
+                <span>ShopCraft Admin</span>
+            </div>
+            <ul class="admin-menu">
+                <li class="admin-menu-item"><a href="dashboard.html"><i class="fas fa-chart-line"></i> <span>Dashboard</span></a></li>
+                <li class="admin-menu-item"><a href="add-product.html"><i class="fas fa-plus-circle"></i> <span>Add Product</span></a></li>
+                <li class="admin-menu-item"><a href="products.html"><i class="fas fa-tags"></i> <span>Products</span></a></li>
+                <li class="admin-menu-item"><a href="orders.html"><i class="fas fa-shopping-bag"></i> <span>Orders</span></a></li>
+                <li class="admin-menu-item"><a href="customers.html" class="active"><i class="fas fa-users"></i> <span>Customers</span></a></li>
+            </ul>
+            <div class="admin-logout-btn">
+                <button onclick="handleAdminLogout()" class="btn btn-danger btn-block btn-sm">
+                    <i class="fas fa-sign-out-alt"></i> <span>Logout Admin</span>
+                </button>
+            </div>
+        </aside>
+
+        <!-- Admin Main Content Area -->
+        <main class="admin-content">
+            <div class="admin-header">
+                <div>
+                    <h1>Registered Customers</h1>
+                    <p style="color:var(--text-secondary);">View registered customer accounts & order statistics</p>
+                </div>
+            </div>
+
+            <div class="table-card">
+                <table class="admin-table">
+                    <thead>
+                        <tr>
+                            <th>Customer Name</th>
+                            <th>Email Address</th>
+                            <th>Phone</th>
+                            <th>Registration Date</th>
+                            <th>Total Orders Placed</th>
+                        </tr>
+                    </thead>
+                    <tbody id="admin-customers-table-body">
+                        <!-- Dynamically populated by admin.js -->
+                    </tbody>
+                </table>
+            </div>
+        </main>
+    </div>
+
+    <!-- Scripts -->
+    <script src="../../js/storage.js"></script>
+    <script src="../../js/main.js"></script>
+    <script src="../../js/admin.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            initAdminCustomers();
+        });
+    </script>
+</body>
+</html>

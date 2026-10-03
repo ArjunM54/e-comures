@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ShopCraft - Modern E-Commerce Store</title>
+    <meta name="description" content="Shop the latest products across Electronics, Fashion, Accessories, Shoes, Home and Beauty.">
+    <!-- FontAwesome CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/dashboard.css">
+</head>
+<body>
+
+    <!-- Header & Navigation -->
+    <header class="navbar">
+        <div class="container nav-container">
+            <a href="index.html" class="logo">
+                <i class="fas fa-shopping-bag"></i>
+                <span>ShopCraft</span>
+            </a>
+
+            <button class="menu-toggle-btn" id="menu-toggle" aria-label="Toggle navigation">
+                <i class="fas fa-bars"></i>
+            </button>
+
+            <ul class="nav-links" id="nav-links">
+                <li><a href="index.html" class="nav-link active"><i class="fas fa-home"></i> Store</a></li>
+                <li><a href="pages/my-orders.html" class="nav-link"><i class="fas fa-box"></i> My Orders</a></li>
+                <li><a href="pages/admin/login.html" class="nav-link" style="color:var(--secondary);"><i class="fas fa-user-shield"></i> Admin Portal</a></li>
+            </ul>
+
+            <div class="user-nav-actions" id="user-nav-actions">
+                <!-- Dynamically updated by main.js -->
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container">
+        <!-- Hero Banner -->
+        <section class="hero-banner">
+            <div class="hero-content container">
+                <span class="hero-tag"><i class="fas fa-sparkles"></i> New Season Arrivals</span>
+                <h1 class="hero-title">Elevate Your Everyday Shopping Experience</h1>
+                <p class="hero-subtitle">Explore top-tier deals across curated electronics, luxury apparel, footwear, and home essentials with Cash on Delivery.</p>
+                <div style="display:flex; gap:1rem;">
+                    <a href="#catalog-section" class="btn btn-primary">
+                        <i class="fas fa-shopping-cart"></i> Explore Products
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Product Catalog Section -->
+        <section id="catalog-section">
+            <!-- Filter & Search Controls -->
+            <div class="catalog-controls">
+                <div class="search-box">
+                    <i class="fas fa-search"></i>
+                    <input type="text" id="search-input" class="search-input" placeholder="Search products by name or description...">
+                </div>
+                
+                <div class="filter-group">
+                    <select id="category-select" class="select-control">
+                        <option value="All">All Categories</option>
+                        <option value="Electronics">Electronics</option>
+                        <option value="Fashion">Fashion</option>
+                        <option value="Shoes">Shoes</option>
+                        <option value="Accessories">Accessories</option>
+                        <option value="Home">Home</option>
+                        <option value="Beauty">Beauty</option>
+                    </select>
+
+                    <select id="sort-select" class="select-control">
+                        <option value="default">Sort by: Default</option>
+                        <option value="price-low">Price: Low to High</option>
+                        <option value="price-high">Price: High to Low</option>
+                        <option value="rating">Rating: High to Low</option>
+                    </select>
+
+                    <button id="clear-filters-btn" class="btn btn-secondary btn-sm">
+                        <i class="fas fa-undo"></i> Reset
+                    </button>
+                </div>
+            </div>
+
+            <!-- Category Pills -->
+            <div class="category-pills" id="category-pills">
+                <!-- Rendered dynamically -->
+            </div>
+
+            <!-- Products Grid -->
+            <div class="products-grid" id="products-grid">
+                <!-- Product cards rendered dynamically by products.js -->
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container footer-grid">
+            <div class="footer-brand">
+                <h3><i class="fas fa-shopping-bag"></i> ShopCraft</h3>
+                <p>A full-featured Vanilla JavaScript e-commerce application built with HTML5, CSS3, and localStorage persistence layer.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Quick Links</h4>
+                <ul class="footer-links">
+                    <li><a href="index.html">Product Catalog</a></li>
+                    <li><a href="pages/cart.html">Shopping Cart</a></li>
+                    <li><a href="pages/my-orders.html">Track Orders</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Account & Admin</h4>
+                <ul class="footer-links">
+                    <li><a href="pages/login.html">Customer Login</a></li>
+                    <li><a href="pages/register.html">User Registration</a></li>
+                    <li><a href="pages/admin/login.html">Admin Portal Login</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 ShopCraft E-Commerce Project. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="js/storage.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/products.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            initCatalog();
+        });
+    </script>
+</body>
+</html>
